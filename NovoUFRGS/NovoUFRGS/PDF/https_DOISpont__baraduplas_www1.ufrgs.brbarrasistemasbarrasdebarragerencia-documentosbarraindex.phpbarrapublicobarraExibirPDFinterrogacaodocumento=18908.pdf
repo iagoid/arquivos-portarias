@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=100" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta name="language" content="pt-BR" />
+
+        <!-- CSS dos Serviços -->
+                    <link href="/design/cpdstyle.css?a=1" media="all" rel="stylesheet" type="text/css" />
+        
+        <!-- CSS da Moldura -->
+        <link href="/intranet/PortalLayout/css/template_form_ufrgs_novo.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/intranet/PortalLayout/css/form_ufrgs_print_novo.css" media="print" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" href="/sistemas/sde/gerencia-documentos/css/GeradorDocumentos.css" />
+<link rel="stylesheet" type="text/css" href="/sistemas/sde/gerencia-documentos/css/VisualizadorDocumento.css" />
+<link rel="stylesheet" type="text/css" href="/_assets/899bf7c7/carregandoUFRGS.css" />
+<script type="text/javascript" src="/_assets/aaee6735/jquery.min.js"></script>
+<script type="text/javascript" src="/_assets/aaee6735/jui/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/sistemas/sde/gerencia-documentos/js/VisualizadorDocumento.js"></script>
+<script type="text/javascript" src="/sistemas/sde/gerencia-documentos/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/_assets/6c7fcf60/tempoSessao.js"></script>
+<script type="text/javascript" src="/_assets/1b89e608/carregandoUFRGS.js"></script>
+<title>Consultar</title>
+
+        <script language="javascript" type="text/javascript">
+
+            function trocaperfil(val)
+            {
+                window.location = val;
+            }
+
+            function Ampliar() {
+
+                var grupo = document.getElementById("amp");
+                var grupo2 = document.getElementById("tst");
+                var grupo3 = document.getElementById("tst2");
+
+                if (grupo.innerHTML == "Abrir")
+                {
+                    grupo.innerHTML = "Fechar";
+                    grupo2.media = "screen";
+                    grupo3.media = "braile";
+
+                } else
+                {
+                    grupo.innerHTML = "Abrir"
+                    grupo2.media = "braile";
+                    grupo3.media = "screen";
+                }
+
+            }
+
+            function criarFieldsetsExpansiveis()
+            {
+                $("fieldset.expansivel > legend").each(function () {
+                    if (!$(this).hasClass('ft'))
+                    {
+                        $(this).addClass('ft');
+                        $(this).click(function () {
+                            $(this).parent().children(".conteudo").slideToggle("fast");
+                            $(this).parent().toggleClass("expandido");
+                        });
+                    }
+                });
+            }
+
+            $(document).ready(function () {
+                criarFieldsetsExpansiveis();
+            });
+
+        </script>
+    </head>
+
+    <body>			<div id="cpdPortalLayout_dialogSessao" style="display:none">
+				Sua sessão irá expirar em <label id="cpdPortalLayout_tempoRestante"></label> segundos.
+			</div>
+        <!--top-->
+
+
+    <div id="CPDPortalLayout_maskCarregando"></div>
+
+    <div id="CPDPortalLayout_dialogCarregando" class="CPDPortalLayout_windowCarregando" style="display:none">
+        <img src="/Design/visual_ufrgs/bigLoader.gif" />
+    </div>
+
+
+
+<div id="top">
+
+    <div id="logo_ufrgs">
+        <span class="UFRGS">UFRGS</span>
+    </div>
+
+    <div id="abas">
+        <ul>
+            <li style="visibility:hidden;"></li>    
+        </ul>
+    </div><!--Final abas-->
+
+    <div id="identificacao" >
+                        <span>Não Autenticado</span>
+                </div>
+</div>        
+
+        <div id="geral">
+
+                                    <div id="menu">
+
+                              
+									<div class="grupo_menu">
+										<div id="m1" class="grupo_contraido">
+											<h3 class="menu_titulo_expandido"><a onCLick="$('#m1').toggleClass('grupo_expandido grupo_contraido');" class="grupo">Documentos</a></h3>
+											                                        
+													<ul class="menu">
+														<li><a href="/sistemas/sde/gerencia-documentos/index.php/geral/index"><img src="/sistemas/sde/gerencia-documentos/images/geral-pequeno.png"> Ambiente Geral</a></li>
+													</ul>
+													                                        
+													<ul class="menu">
+														<li><a href="/sistemas/sde/gerencia-documentos/index.php/certificador/index"><img src="/sistemas/sde/gerencia-documentos/images/certificado-pequeno.png"> Certificação</a></li>
+													</ul>
+													                                        
+													<ul class="menu">
+														<li><a href="/sistemas/sde/gerencia-documentos/index.php/digitalizacao/index"><img src="/sistemas/sde/gerencia-documentos/images/digitalizacao-pequeno.png"> Digitalização</a></li>
+													</ul>
+													                                        
+													<ul class="menu">
+														<li><a href="/sistemas/sde/gerencia-documentos/index.php/permissoes/index"><img src="/sistemas/sde/gerencia-documentos/images/permissoes-pequeno.png"> Permissões</a></li>
+													</ul>
+													                                        
+													<ul class="menu">
+														<li><a href="/sistemas/sde/gerencia-documentos/index.php/redator/index"><img src="/sistemas/sde/gerencia-documentos/images/editar-pequeno.png"> Redação</a></li>
+													</ul>
+													                                        
+													<ul class="menu">
+														<li><a href="/sistemas/sde/gerencia-documentos/index.php/ciencia/index"><img src="/sistemas/sde/gerencia-documentos/images/confirmar-pequeno.png"> Revisão</a></li>
+													</ul>
+													                                        
+
+										</div>
+									</div><!--Final grupo_menu_selecionado-->
+									
+
+                        </div><!--menu-->
+                        
+            			
+            <div id="estrutura"  class="template_estrutura_margin" >
+                <div id="cabecalho">
+                    <img id="cabecalho_logo" src="/intranet/PortalLayout/images/logo_ufrgs_new.png" />
+                    <div id="cabecalho_ufrgs">Universidade Federal do Rio Grande do Sul</div>
+                    <div id="cabecalho_portal">Portal de Serviços</div>
+                    
+                                                                        
+                        
+                   
+                </div>
+                <div id="cont">
+
+
+            <div id="conteudo"><fieldset class='fieldErro centro'>
+	Documento foi removido, portanto não pode ser exibido o PDF</fieldset>
+<br />
+<fieldset>
+	<div class='centro'>
+		<input type='button' class='button' value='Voltar' onClick='document.location ="/sistemas/sde/gerencia-documentos/index.php/publico/index"'>
+	</div>
+</fieldset>                            </div>
+
+                            <div id="baixo-estrutura">
+                                <div id="canto-dir"></div>
+                            </div><!--baixo-estrutura-->
+                        </div><!--cont-->
+                    </div>
+                    <!--estrutura-->
+
+                </div><!--geral-->
+                <img id="logo-cpd-alpha" src="/Design/visual_ufrgs/logo_cpd_novo.png" alt="CPD da UFRGS"/>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['setCustomUrl', location.href.toLowerCase()]);  
+  _paq.push(['setCustomVariable','1','servidor','asterope1']); 
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://stats.ufrgs.br/piwik/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "40"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
